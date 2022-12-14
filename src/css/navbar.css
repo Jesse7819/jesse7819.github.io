@@ -1,0 +1,18 @@
+.nav-item.show.dropdown .dropdown-menu.show {
+    top: 45px;
+}
+
+.navbarbg {
+    background-color: #209cfa;
+
+}
+
+.container-fluid .navbar-brand,
+.container-fluid .nav-link {
+    color: white;
+
+}
+
+.container-fluid .nav-link { 
+    text-align: center;
+}
