@@ -13,7 +13,7 @@ export function greetingPrompt() {
         $(".intro").append("Welkom " + naam + ", leuk dat u er bent! <br> Vandaag is het " + nowDate.toLocaleDateString(undefined, options));
 
     } else {
-        //User heeft op cancel geklikt.
+        //User heeft op cancel geklikt. 
     }
 }
 
