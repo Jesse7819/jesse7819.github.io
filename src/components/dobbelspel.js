@@ -1,4 +1,4 @@
-import $ from "jquery"
+import $ from "jquery";
 
 var diceRollInfo = false;
 var player1DiceRoll1;
@@ -20,20 +20,26 @@ export function diceRollInfoFunction() {
     player1Name = prompt("Wat is de naam van speler 1?");
     player2Name = prompt("Wat is de naam van speler 2?");
     
-    if ((player1Name && player2Name) !== "" || null) {
-        document.getElementsByClassName("player1Name")[0].innerHTML = "Speler: " + player1Name;
-        document.getElementsByClassName("player2Name")[0].innerHTML = "Speler: " + player2Name;
-        diceRollInfo = true;
-        $(".resetBtn").css("display", "block");
-        $(".rollDice").css("display", "block");
-        $(".startBtn").css("display", "none");
-        getTurnPlayer();
-    } else {
-        document.getElementsByClassName("player1Name")[0].innerHTML = "Oh, U heeft niets ingevuld! Wilt u uw naam niet vertellen?";
-        document.getElementsByClassName("player2Name")[0].innerHTML = "";
-        diceRollInfo = false;
-        $(".resetBtn").css("display", "none");
-        $(".rollDiceBtn").css("display", "none");
+    if(diceRollInfo === false) {
+        if ((player1Name && player2Name) !== "" || null) {
+            // document.getElementsByClassName("player1Name")[0].innerHTML = "Speler: " + player1Name;
+            // document.getElementsByClassName("player2Name")[0].innerHTML = "Speler: " + player2Name;
+            $(".player1Name").text("Speler: " + player1Name);
+            $(".player2Name").text("Speler: " + player2Name);
+            diceRollInfo = true;
+            $(".resetBtn").css("display", "block");
+            $(".rollDice").css("display", "block");
+            $(".startBtn").css("display", "none");
+            getTurnPlayer();
+        } else {
+            // document.getElementsByClassName("player1Name")[0].innerHTML = "Oh, U heeft niets ingevuld! Wilt u uw naam niet vertellen?";
+            // document.getElementsByClassName("player2Name")[0].innerHTML = "";
+            $(".player1Name").text("Oh, U heeft niets ingevuld! Wilt u uw naam niet vertellen?");
+            $(".player2Name").text("");
+            diceRollInfo = false;
+            $(".resetBtn").css("display", "none");
+            $(".rollDiceBtn").css("display", "none");
+        }
     }
 
 }

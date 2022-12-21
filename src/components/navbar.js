@@ -10,7 +10,6 @@ function newNavbar() {
         <Navbar expand="md">
             <Container fluid>
                 <Navbar.Brand as={NavLink} to="/">Jesse Sosef</Navbar.Brand>
-                <Container>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
@@ -18,12 +17,12 @@ function newNavbar() {
                         <Nav.Link as={NavLink} to="/about">Over mij</Nav.Link>
                         <NavDropdown title="Cases" id="basic-nav-dropdown">
                             <NavDropdown.Item as={NavLink} to="/dobbelspel">Dobbelspel</NavDropdown.Item>
+                            <NavDropdown.Item as={NavLink} to="/helloworld">Hello World</NavDropdown.Item>
                             <NavDropdown.Divider />
                             <NavDropdown.Item href="#action/3.4">Another Item</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
                 </Navbar.Collapse>
-                </Container>
             </Container>
         </Navbar>
         </div>
