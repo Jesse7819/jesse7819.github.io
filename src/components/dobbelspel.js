@@ -1,4 +1,10 @@
 import $ from "jquery";
+import dice6 from '../images/dice6.png';
+import dice5 from '../images/dice5.png';
+import dice4 from '../images/dice4.png';
+import dice3 from '../images/dice3.png';
+import dice2 from '../images/dice2.png';
+import dice1 from '../images/dice1.png';
 
 var diceRollInfo = false;
 var player1DiceRoll1;
@@ -12,6 +18,10 @@ var beurt;
 var player1Name = "";
 var player2Name = "";
 var winner;
+var snakeEyes1 = false;
+var snakeEyes2 = false;
+let diceImages = [dice1, dice2, dice3, dice4, dice5, dice6];
+
 
 
 
@@ -72,6 +82,8 @@ export function resetDiceRollFunction() {
     $(".diceTwo").text("");
     turn = "player1";
     $(".playerTurn").css("display", "none");
+    snakeEyes1 = false;
+    snakeEyes2 = false;
 }
 
 export function startGameFunction() {
@@ -81,9 +93,13 @@ export function startGameFunction() {
         
         player1DiceRoll1 = Math.floor(Math.random() * 6 + 1);
         player1DiceRoll2 = Math.floor(Math.random() * 6 + 1);
+        
         player1Total = (player1DiceRoll1 + player1DiceRoll2);
-        $(".diceOne").text(player1DiceRoll1);
-        $(".diceTwo").text(player1DiceRoll2);
+        document.querySelector(".diceOne").setAttribute("src", diceImages[player1DiceRoll1 - 1]);
+        document.querySelector(".diceTwo").setAttribute("src", diceImages[player1DiceRoll2 - 1]);
+        if(player1Total === 2) {
+            snakeEyes1 = true;
+        }
         turn = "player2";
         getTurnPlayer();
         $(".player1Name").text("Speler: " + player1Name + ": heeft " + player1DiceRoll1 + " + " + player1DiceRoll2 + " (" + player1Total + ") gerold.");
@@ -91,8 +107,11 @@ export function startGameFunction() {
         player2DiceRoll1 = Math.floor(Math.random() * 6 + 1);
         player2DiceRoll2 = Math.floor(Math.random() * 6 + 1);
         player2Total = (player2DiceRoll1 + player2DiceRoll2);
-        $(".diceOne").text(player2DiceRoll1);
-        $(".diceTwo").text(player2DiceRoll2);
+        document.querySelector(".diceOne").setAttribute("src", diceImages[player2DiceRoll1 - 1]);
+        document.querySelector(".diceTwo").setAttribute("src", diceImages[player2DiceRoll2 - 1]);
+        if(player2Total === 2) {
+            snakeEyes2 = true;
+        }
         turn = "player1";
         getTurnPlayer();
         $(".player2Name").text("Speler: " + player2Name + ": heeft " + player2DiceRoll1 + " + " + player2DiceRoll2 + " (" + player2Total + ") gerold.");
@@ -102,15 +121,23 @@ export function startGameFunction() {
 }
 
 export function getResultaat() {
-    if(player1Total === 2 || player1Total > player2Total) {
-        winner = player1Name;
-    } 
-    if(player2Total === 2 || player2Total > player1Total) {
-        winner = player2Name;
-    } 
-    if (player1Total === player2Total || player2Total === player1Total) {
+
+    if(snakeEyes1 === true || snakeEyes2 === true) {
+        if(snakeEyes1 === true) {
+            winner = player1Name;
+        } 
+        if(snakeEyes2 === true) {
+            winner = player2Name;
+        }
+    } else if((snakeEyes1 === true && snakeEyes2 === true) || (player1Total === player2Total)) {
         $(".resultaat").text("Gelijkspel!");
         return;
+    } 
+    if(player1Total > player2Total) {
+        winner = player1Name;
+    } 
+    if(player2Total > player1Total) {
+        winner = player2Name;
     }
 
     $(".resultaat").text(winner + " heeft gewonnen!");

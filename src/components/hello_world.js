@@ -7,9 +7,10 @@ export function greetingPrompt() {
     var naam = prompt("Hallo, wat is uw naam?");
 
     if (naam === "") {
-        $(".intro").append("Oh, U heeft niets ingevuld! Wilt u uw naam niet vertellen?");
+        $(".intro").text("Oh, U heeft niets ingevuld! Wilt u uw naam niet vertellen?");
 
     } else if (naam) {
+        $(".intro").text("");
         $(".intro").append("Welkom " + naam + ", leuk dat u er bent! <br> Vandaag is het " + nowDate.toLocaleDateString(undefined, options));
 
     } else {

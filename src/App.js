@@ -1,6 +1,6 @@
 import React from 'react';
-import './App.css';
-import './css/navbar.css';
+import './css/main.css';
+
 
 import { BrowserRouter as Router, Routes, Route }
 	from 'react-router-dom';
@@ -15,15 +15,14 @@ function App() {
 	return (
 
 		<Router>
-
 			<Navbar />
-
-
+			
 			<Routes>
 				<Route path='/' exact element={<Home />} />
 				<Route path='/about' element={<About />} />
 				<Route path='/dobbelspel' element={<Dobbelspel />} />
 				<Route path='/helloworld' element={<HelloWorld />} />
+				
 			</Routes>
 		</Router>
 	);
