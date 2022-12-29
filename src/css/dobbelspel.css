@@ -1,0 +1,76 @@
+.rollDice {
+    display: none;
+}
+
+.dobbelspelContainer {
+    display: block;
+
+}
+
+.dobbelspelContainer .dobbelspelTitel {
+    text-align: center;
+}
+
+.areas {
+    width: 80%;
+    margin: auto;
+    height: 500px;
+    display: flex;
+    position: relative;
+    justify-content: center;
+}
+
+.leftArea,
+.rightArea {
+    width: 50%;
+    text-align: center;
+    color: white;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.leftArea {
+    background-color: blue;
+
+}
+
+.rightArea {
+    background-color: red;
+}
+
+.leftArea p,
+.rightArea p {
+    margin: 0;
+}
+
+.startBtn, .resetBtn, .rollDice {
+    position: absolute;
+    top: 50%;
+    margin: auto;
+    background: #232931;
+    font-family: "Indie Flower", cursive;
+    border-radius: 7px;
+    color: #ffff;
+    font-size: 30px;
+    padding: 16px 25px 16px 25px;
+    text-decoration: none;
+}
+
+.resetBtn{
+    display: none;
+    padding: 5px;
+    top: 80%;
+}
+
+.dices1, .dices2 {
+    position: absolute;
+    top: 50%;
+    display: none;
+}
+
+@media screen and (max-width: 767px) {
+    .startBtn, .resetBtn {
+        top: 80%;
+    }
+}
