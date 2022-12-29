@@ -20,6 +20,12 @@
     justify-content: center;
 }
 
+.score {
+    position: absolute;
+    color: white;
+    opacity: 1 !important;
+}
+
 .leftArea,
 .rightArea {
     width: 50%;
@@ -44,7 +50,7 @@
     margin: 0;
 }
 
-.startBtn, .resetBtn, .rollDice {
+.startBtn, .resetBtn, .rollDice, .stopBtn {
     position: absolute;
     top: 50%;
     margin: auto;
@@ -57,7 +63,19 @@
     text-decoration: none;
 }
 
-.resetBtn{
+.resultaat, .playerTurn {
+    position: absolute;
+    top: 30%;
+    color: white;
+    font-weight: 750;
+    text-align: center;
+}
+
+.resetBtn {
+    display: none;
+}
+
+.stopBtn {
     display: none;
     padding: 5px;
     top: 80%;
@@ -67,10 +85,31 @@
     position: absolute;
     top: 50%;
     display: none;
+
+}
+
+@media screen and (max-width: 1385px) {
+    .startBtn, .resetBtn, .rollDice {
+        top: 80%;
+    }
+    .stopBtn {
+        display: none !important;
+    }
+
+    .dices1 img, .dices2 img{
+        width: 55px;
+    }
+
+    .player1Name, .player2Name {
+        max-width: 75%;
+    }
 }
 
 @media screen and (max-width: 767px) {
-    .startBtn, .resetBtn {
+    .startBtn, .resetBtn, .rollDice {
         top: 80%;
+    }
+    .stopBtn {
+        display: none !important;
     }
 }
