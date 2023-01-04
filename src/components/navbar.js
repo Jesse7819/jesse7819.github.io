@@ -18,6 +18,7 @@ function newNavbar() {
                         <NavDropdown title="Cases" id="basic-nav-dropdown">
                             <NavDropdown.Item as={NavLink} to="/dobbelspel">Dobbelspel</NavDropdown.Item>
                             <NavDropdown.Item as={NavLink} to="/helloworld">Hello World</NavDropdown.Item>
+                            <NavDropdown.Item as={NavLink} to="/loops">For/While loops</NavDropdown.Item>
                             <NavDropdown.Divider />
                             <NavDropdown.Item href="#action/3.4">Another Item</NavDropdown.Item>
                         </NavDropdown>

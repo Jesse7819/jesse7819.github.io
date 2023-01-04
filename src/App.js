@@ -9,6 +9,7 @@ import About from './pages/about';
 import Dobbelspel from './pages/dobbelspel';
 import Navbar from './components/navbar';
 import HelloWorld from './pages/hello_world';
+import Loops from './pages/loops';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
 				<Route path='/about' element={<About />} />
 				<Route path='/dobbelspel' element={<Dobbelspel />} />
 				<Route path='/helloworld' element={<HelloWorld />} />
+				<Route path='/loops' element={<Loops />} />
 				
 			</Routes>
 		</Router>
