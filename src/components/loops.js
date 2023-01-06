@@ -1,14 +1,26 @@
 import $ from "jquery";
 
+let firstLoopActive = false;
+let secondLoopActive = false;
+let thirdLoopActive = false;
+let fourthLoopActive = false;
+let fifthLoopActive = false;
+let sixthLoopActive = false;
+
 export function firstLoop() {
     let tekst = "";
-    for(let i = 0; i < 10; i++) {
-        for (let x = 0; x < 10; x++) {
-            tekst += "*";
+
+    if (firstLoopActive === false) {
+        firstLoopActive = true;
+        for (let i = 0; i < 10; i++) {
+            for (let x = 0; x < 10; x++) {
+                tekst += "*";
+            }
+            tekst += "<br>";
         }
-        tekst += "<br>";
+        $(".firstLoop").append(tekst);
+        
     }
-    $(".firstLoop").append(tekst);
 }
 
 
@@ -17,45 +29,85 @@ export function secondLoop() {
     let i = 0;
     let x = 0;
 
-    while (i < 10) {
-        tekst += "*";
-        for (x = 0; x < 8; x++) {
-            if(i === 0 || i === 9){
-                tekst += "*";
-            } else {
-                tekst += "&nbsp";
+    if (secondLoopActive === false) {
+        while (i < 10) {
+            tekst += "*";
+            for (x = 0; x < 8; x++) {
+                if (i === 0 || i === 9) {
+                    tekst += "*";
+                } else {
+                    tekst += "&nbsp";
+                }
             }
+            tekst += "* <br>";
+            i++;
         }
-        tekst += "* <br>";
-        i++;
-    }
-    
-    $(".secondLoop").append(tekst);
 
+        $(".secondLoop").append(tekst);
+        secondLoopActive = true;
+    }
+
+}
+
+export function thirdLoop() {
+    let tekst = "";
+    if (thirdLoopActive === false) {
+        for (let i = 1; i < 10; i++) {
+            for (let x = 10; x > i; x--) {
+                tekst = tekst + "&nbsp";
+            }
+            tekst += "***<br>";
+        }
+        $(".secondLoop").append(tekst);
+        thirdLoopActive = true;
+    }
 }
 
 export function fourthLoop() {
     let tekst = "";
+    if (fourthLoopActive === false) {
+        for (let i = 0; i < 10; i++) {
+            for (let x = 0; x <= i; x++) {
+                tekst = tekst + "*";
+            }
+            tekst += "<br>";
 
-    for(let i = 0; i < 10; i++) {
-        for(let x = 0; x <= i; x++) {
-            tekst = tekst + "*";    
         }
-        tekst += "<br>";
-
+        $(".secondLoop").append(tekst);
+        fourthLoopActive = true;
     }
-    $(".secondLoop").append(tekst);
 }
 
 export function fifthLoop() {
     let tekst = "";
 
-    for(let i = 10; i > 0; i--) {
-        for(let x = 10; x >= i; x--) {
-            tekst = tekst + "*";    
+    if (fifthLoopActive === false) {
+        for (let i = 0; i < 10; i++) {
+            tekst = tekst + "&nbsp".repeat(i);
+            tekst = tekst + "*".repeat(10 - i);
+            tekst += "<br>";
         }
-        tekst += "<br>";
+        $(".secondLoop").append(tekst);
+        fifthLoopActive = true;
+    }
+}
+
+export function sixthLoop() {
+    let tekst = "";
+
+    if (sixthLoopActive === false) {
+        sixthLoopActive = true;
+        for (let i = 1; i < 10; i++) {
+            for (let x = 10; x > i; x--) {
+                tekst = tekst + "&nbsp";
+            }
+            for (let y = 0; y < i; y++) {
+                tekst = tekst + i.toString();
+            }
+            tekst += "<br>";
+        }
+        $(".secondLoop").append(tekst);
 
     }
-    $(".secondLoop").append(tekst);
 }
+
