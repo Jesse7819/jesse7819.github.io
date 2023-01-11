@@ -18,6 +18,7 @@ export function firstLoop() {
             }
             tekst += "<br>";
         }
+        $(".firstLoop").css("display", "inline-flex");
         $(".firstLoop").append(tekst);
         
     }
@@ -42,7 +43,7 @@ export function secondLoop() {
             tekst += "* <br>";
             i++;
         }
-
+        $(".secondLoop").css("display", "inline-flex");
         $(".secondLoop").append(tekst);
         secondLoopActive = true;
     }
@@ -52,13 +53,15 @@ export function secondLoop() {
 export function thirdLoop() {
     let tekst = "";
     if (thirdLoopActive === false) {
-        for (let i = 1; i < 10; i++) {
+        for (let i = 0; i < 10; i++) {
             for (let x = 10; x > i; x--) {
                 tekst = tekst + "&nbsp";
             }
             tekst += "***<br>";
         }
-        $(".secondLoop").append(tekst);
+        
+        $(".thirdLoop").css("display", "inline-flex");
+        $(".thirdLoop").append(tekst);
         thirdLoopActive = true;
     }
 }
@@ -73,7 +76,9 @@ export function fourthLoop() {
             tekst += "<br>";
 
         }
-        $(".secondLoop").append(tekst);
+        
+        $(".fourthLoop").css("display", "inline-flex");
+        $(".fourthLoop").append(tekst);
         fourthLoopActive = true;
     }
 }
@@ -87,7 +92,8 @@ export function fifthLoop() {
             tekst = tekst + "*".repeat(10 - i);
             tekst += "<br>";
         }
-        $(".secondLoop").append(tekst);
+        $(".fifthLoop").css("display", "inline-flex");
+        $(".fifthLoop").append(tekst);
         fifthLoopActive = true;
     }
 }
@@ -106,7 +112,9 @@ export function sixthLoop() {
             }
             tekst += "<br>";
         }
-        $(".secondLoop").append(tekst);
+        $(".sixthLoop").css("display", "inline-flex");
+        tekst += "<br>";
+        $(".sixthLoop").append(tekst);
 
     }
 }

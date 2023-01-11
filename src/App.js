@@ -10,6 +10,7 @@ import Dobbelspel from './pages/dobbelspel';
 import Navbar from './components/navbar';
 import HelloWorld from './pages/hello_world';
 import Loops from './pages/loops';
+import Magic8ball from './pages/magic8ball';
 
 
 function App() {
@@ -24,7 +25,7 @@ function App() {
 				<Route path='/dobbelspel' element={<Dobbelspel />} />
 				<Route path='/helloworld' element={<HelloWorld />} />
 				<Route path='/loops' element={<Loops />} />
-				
+				<Route path='/magic8ball' element={<Magic8ball />} />				
 			</Routes>
 		</Router>
 	);
