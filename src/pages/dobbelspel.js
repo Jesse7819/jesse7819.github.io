@@ -36,15 +36,7 @@ const Dobbelspel = () => {
                 <button className="rollDice" type="button" onClick={startGameFunction}>Rol de stenen</button>
                 {/* <button class="rollDiceBtn" type="button" onclick="startGameFunction()">Begin het spel</button> */}
             </div>
-
-            
-            
-
-
-            
         </div>
-
-
     );
 };
 

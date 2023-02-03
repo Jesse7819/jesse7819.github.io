@@ -1,0 +1,40 @@
+.magic8ball {
+    width: 100%;
+    background-color: #003554;
+    height: 800px;
+    display: inline-block;
+}
+
+.magic8ball .magic8ballForm {
+    display: grid;
+    justify-content: center;
+}
+
+.magic8ball .magic8ballForm .introQuestion {
+    color: white;
+    text-align: center;
+}
+
+.magic8ball .magic8ballResults {
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    font-size: 2em;
+} 
+
+.magic8ballBtn {
+    margin: auto;
+    background: #232931;
+    font-family: "Indie Flower", cursive;
+    border-radius: 7px;
+    color: #ffff;
+    font-size: 20px;
+    padding: 16px 25px 16px 25px;
+    text-decoration: none;
+    display: flex;
+}
+
+hr {
+    color: white;
+}

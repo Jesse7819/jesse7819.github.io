@@ -16,7 +16,7 @@ export function greetingPrompt() {
     } else {
         //User heeft op cancel geklikt. 
     }
-}
+} 
 
 //Getallen rekenen
 export function getallenFunction() {

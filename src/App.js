@@ -11,6 +11,7 @@ import Navbar from './components/navbar';
 import HelloWorld from './pages/hello_world';
 import Loops from './pages/loops';
 import Magic8ball from './pages/magic8ball';
+import Bejaardentehuis from './pages/bejaardentehuis';
 
 
 function App() {
@@ -25,7 +26,8 @@ function App() {
 				<Route path='/dobbelspel' element={<Dobbelspel />} />
 				<Route path='/helloworld' element={<HelloWorld />} />
 				<Route path='/loops' element={<Loops />} />
-				<Route path='/magic8ball' element={<Magic8ball />} />				
+				<Route path='/magic8ball' element={<Magic8ball />} />	
+				<Route path='/bejaardentehuis' element={<Bejaardentehuis/>} />			
 			</Routes>
 		</Router>
 	);

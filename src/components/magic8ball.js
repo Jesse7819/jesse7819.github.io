@@ -6,17 +6,34 @@ const answersArray = ["Het is zeker", "Het is beslist zo", "Zonder twijfel", "Ze
     "De vooruitzichten zijn niet best", "Zeer twijfelachtig!"];
 
 let answersLength = answersArray.length;
+let enterTimer = false;
+
+//When focus on an input, enter will execute a function
+export function enterFunction() {
+    $(document).on("keydown", function (event) {
+        if ($(".question").is(":focus") && event.key === "Enter" && enterTimer === false) {
+            enterTimer = true;
+            magic8ballFunction();
+            console.log("Enter timer = true");
+            setTimeout(function () {
+                enterTimer = false;
+                console.log("Enter timer = false");
+            }, 500);
+        }
+    });
+}
 
 export function magic8ballFunction() {
-    //let tekst = "<ul>";
 
     let answer = answersArray[Math.floor(Math.random() * answersLength)];
+    if ($(".question").val() !== "") {
+        let question = $(".question").val();
 
-    let question = $(".question").val();
-    
-    $(".magic8ballQuestion").text(question);
-    $(".question").val("");
-
-    $(".magic8ballAnswer").text(answer);
+        $(".magic8ballQuestion").text(question);
+        $(".question").val("");
+        $(".magic8ballAnswer").text(answer);
+    } else {
+        console.log($(".question").val());
+    }
 
 }

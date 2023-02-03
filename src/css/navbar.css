@@ -3,7 +3,7 @@
 }
 
 .navbarbg {
-    background-color: #209cfa;
+    background-color: #0582ca;
 
 }
 
@@ -21,4 +21,11 @@
     margin: auto;
     padding-right: 100px;
     font-size: 20px;
+}
+
+@media screen and (max-width: 767px) {
+    .navbar-expand-md .navbar-nav {
+        padding-right: unset;
+    }
+    
 }

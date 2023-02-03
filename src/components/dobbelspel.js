@@ -85,7 +85,7 @@ export function stopDiceGameFunction() {
     $(".rollDice").hide();
     $(".rightArea").css("opacity", "1");
     $(".stopBtn").hide();
-    player1Score = 0;
+    player1Score = 0; 
     player2Score = 0;
     $(".score").text(player1Score + "|" + player2Score);
 }
