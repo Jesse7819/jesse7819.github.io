@@ -1,7 +1,10 @@
 .testrow {
     display: table;
+    float: left;
 }
 
 .testcell {
     display: table;
+    border: 1px solid black;
+    width: 100px;
 }

@@ -5,7 +5,7 @@ export function bejaardentehuisFunction() {
     
     const leeftijdsArray = [];
     const bejaardentehuisArray = [];
-    let aantalBejaarden = bejaardentehuisArray.length;
+    let aantalBejaarden = (bejaardentehuisArray.length / 4);
     let innerTable = "<tr class='testrow'>";
 
 
@@ -17,7 +17,7 @@ export function bejaardentehuisFunction() {
         }
     }
     
-    for(let x = 0; x < 5; x++){
+    for(let x = 0; x < (bejaardentehuisArray.length / 20); x++){
         //maak een div voor de table
         //begin met tr
         //daarin 25x loop voor td
@@ -26,7 +26,7 @@ export function bejaardentehuisFunction() {
         for(let i = 0; i < 25; i++) {
             // $(".tableTest").append("<td>" + leeftijdsArray[i] + "</td>");
             // $(".tableTest").append("<br>");
-            innerTable += "<td class='testcell'>" + leeftijdsArray[i] + "</td>";
+            innerTable += "<td class='testcell'>" + bejaardentehuisArray[i] + "</td>";
             // innerTable += "</td> <br /> ";
             
             
@@ -34,7 +34,7 @@ export function bejaardentehuisFunction() {
         innerTable += "</tr>";
         //$(".tableTest").append("</tr>");
         $(".tableTest").append(innerTable);
-        innerTable = "<tr>";
+        innerTable = "<tr class='testrow'>";
 
     }
 
