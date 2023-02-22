@@ -1,6 +1,12 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 @import url("navbar.css");
 @import url("../App.css");
 @import url("dobbelspel.css");
 @import url("loops.css");
 @import url("magic8ball.css");
 @import url("bejaardentehuis.css");
+

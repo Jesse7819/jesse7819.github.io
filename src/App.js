@@ -12,6 +12,7 @@ import HelloWorld from './pages/hello_world';
 import Loops from './pages/loops';
 import Magic8ball from './pages/magic8ball';
 import Bejaardentehuis from './pages/bejaardentehuis';
+import Footer from './components/footer';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
 				<Route path='/magic8ball' element={<Magic8ball />} />	
 				<Route path='/bejaardentehuis' element={<Bejaardentehuis/>} />			
 			</Routes>
+			<Footer />
 		</Router>
 	);
 }

@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Nav, Navbar, Container, NavDropdown } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
-
+//https://mdbootstrap.com/docs/react/navigation/footer/
 
 function newNavbar() {
     return (
@@ -18,6 +18,7 @@ function newNavbar() {
                             <NavDropdown title="Cases" id="basic-nav-dropdown">
                                 <NavDropdown.Item as={NavLink} to="/dobbelspel">Dobbelspel</NavDropdown.Item>
                                 <NavDropdown.Item as={NavLink} to="/helloworld">Hello World</NavDropdown.Item>
+                                <NavDropdown.Item href="/helloworld">Hello World2</NavDropdown.Item>
                                 <NavDropdown.Item as={NavLink} to="/loops">For/While loops</NavDropdown.Item>
                                 <NavDropdown.Item as={NavLink} to="/magic8ball">Magic8Ball</NavDropdown.Item>
                                 <NavDropdown.Item as={NavLink} to="/bejaardentehuis">Bejaardentehuis</NavDropdown.Item>
