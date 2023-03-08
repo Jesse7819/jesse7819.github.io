@@ -13,6 +13,7 @@ import Loops from './pages/loops';
 import Magic8ball from './pages/magic8ball';
 import Bejaardentehuis from './pages/bejaardentehuis';
 import Footer from './components/footer';
+import Kluis from './pages/kluis';
 
 
 function App() {
@@ -20,15 +21,16 @@ function App() {
 
 		<Router>
 			<Navbar />
-			
+
 			<Routes>
 				<Route path='/' exact element={<Home />} />
 				<Route path='/about' element={<About />} />
 				<Route path='/dobbelspel' element={<Dobbelspel />} />
 				<Route path='/helloworld' element={<HelloWorld />} />
 				<Route path='/loops' element={<Loops />} />
-				<Route path='/magic8ball' element={<Magic8ball />} />	
-				<Route path='/bejaardentehuis' element={<Bejaardentehuis/>} />			
+				<Route path='/magic8ball' element={<Magic8ball />} />
+				<Route path='/bejaardentehuis' element={<Bejaardentehuis />} />
+				<Route path='/kluis' element={<Kluis />} />
 			</Routes>
 			<Footer />
 		</Router>

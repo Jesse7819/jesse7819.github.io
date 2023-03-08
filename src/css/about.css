@@ -1,0 +1,52 @@
+.aboutme-header {
+	display: flex;
+	justify-content: center;
+}
+
+#aboutme-body {
+	display: flex;
+	flex: 1;
+	text-align: center;
+}
+
+#aboutme-body>#algemeen {
+	flex: 1;
+	order: 1;
+
+}
+
+#aboutme-body {
+	/* position: absolute;
+	top: 30%; */
+}
+
+#aboutme-body>#algemeen>p {
+	margin: 10px;
+	border: 1px solid black;
+	text-align: start;
+	padding: 4px;
+}
+
+#aboutme-body>#hobbies {
+	flex: 1;
+	order: 2;
+}
+
+#aboutme-body>#hobbies>p {
+	margin: 10px;
+	border: 1px solid black;
+	text-align: start;
+	padding: 4px;
+}
+
+#aboutme-body>#development {
+	flex: 1;
+	order: 3;
+}
+
+#aboutme-body>#development>p {
+	margin: 10px;
+	border: 1px solid black;
+	text-align: start;
+	padding: 4px;
+}

@@ -4,35 +4,35 @@ import { faFacebook, faGithub, faGoogle, faInstagram, faLinkedin, faTwitterSquar
 
 export default function Footer() {
 	return (
-		<div className="footer">
+		<footer className="footer">
 			<div className="footer-header">
 				<div className="socialBtns">
-					<i className="facebookBtn">
+					<a href="https://www.facebook.com/" target="_blank" rel="noreferrer" className="facebookBtn">
 						<FontAwesomeIcon icon={faFacebook} />
-					</i>
-					<i className="twitterBtn">
+					</a>
+					<a href="https://www.twitter.com/" target="_blank" rel="noreferrer" className="twitterBtn">
 						<FontAwesomeIcon icon={faTwitterSquare} />
-					</i>
-					<i className="googleBtn">
+					</a>
+					<a href="https://www.google.com/" target="_blank" rel="noreferrer" className="googleBtn">
 						<FontAwesomeIcon icon={faGoogle} />
-					</i>
-					<i className="instagramBtn">
+					</a>
+					<a href="https://www.instagram.com/" target="_blank" rel="noreferrer" className="instagramBtn">
 						<FontAwesomeIcon icon={faInstagram} />
-					</i>
-					<i className="linkedInBtn">
+					</a>
+					<a href="https://nl.linkedin.com/" target="_blank" rel="noreferrer" className="linkedInBtn">
 						<FontAwesomeIcon icon={faLinkedin} />
-					</i>
-					<i className="githubBtn">
+					</a>
+					<a href="https://github.com/Jesse7819" target="_blank" rel="noreferrer" className="githubBtn">
 						<FontAwesomeIcon icon={faGithub} />
-					</i>
+					</a>
 				</div>
 			</div>
 			<div className="footer-bottom">
-				© 2023 Copyright:
-				<a className="text-white" href='#'>
+				© 2023 Made by:
+				<a className="text-white" href='/'>
 					Jesse Sosef
 				</a>
 			</div>
-		</div>
+		</footer>
 	);
 }

@@ -7,12 +7,12 @@ export function bejaardentehuisFunction() {
     const leeftijdsArray = [];
     const bejaardentehuisArray = [];
     const flexArray = ["id1", "id2", "id3", "id4", "id5", "id6"];
-    $("#id1").text("");
-    $("#id2").text("");
-    $("#id3").text("");
-    $("#id4").text("");
-    $("#id5").text("");
-    $("#id6").text("");
+    $("#id1").text("Row 1:");
+    $("#id2").text("Row 2:");
+    $("#id3").text("Row 3:");
+    $("#id4").text("Row 4:");
+    $("#id5").text("Row 5:");
+    $("#id6").text("Row 6:");
 
     for (let x = 0; x < 100; x++) {
         let leeftijd = Math.floor(Math.random() * 120 + 1);
