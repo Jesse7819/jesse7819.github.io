@@ -2,7 +2,7 @@ import React from 'react';
 import './css/main.css';
 
 
-import { BrowserRouter as Router, Routes, Route }
+import { BrowserRouter as Router, Routes, Route, BrowserRouter }
 	from 'react-router-dom';
 import Home from './pages';
 import About from './pages/about';
@@ -19,7 +19,7 @@ import Kluis from './pages/kluis';
 function App() {
 	return (
 
-		<Router>
+		<BrowserRouter basename={window.location.pathname || ''}>
 			<Navbar />
 
 			<Routes>
@@ -33,7 +33,7 @@ function App() {
 				<Route path='/kluis' element={<Kluis />} />
 			</Routes>
 			<Footer />
-		</Router>
+		</BrowserRouter>
 	);
 }
 
