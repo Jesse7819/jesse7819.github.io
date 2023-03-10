@@ -17,34 +17,47 @@ class Kluis {
 
 	}
 
-	getAantalStaven(input_combi) {
-		if (input_combi === this._combi) {
+	getAantalStaven() {
+		if (this.getCombi() === true) {
 			return this._aantalStaven;
 		} else {
-			return false;
+			$(".kluisInfo2").text("Flikker op");
 		}
+
 	}
+
 
 	setAantalStaven() {
 
 	}
 
+	getCombi() {
+		let input_combi = prompt("Voer uw code in");
+		if (input_combi === this._combi) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }
 
 const kluisArray = [];
 
 export function createKluis() {
 	let kluisNaam = prompt("Wat is uw kluisnaam?");
-	let goudStaven = prompt("Hoeveel goudstaven?");
-	let combinatieCode = prompt("Wat is de combinatie code?");
-	const kluis = new Kluis(kluisNaam, goudStaven, combinatieCode);
+	let aantalGoudstaven = prompt("Hoeveel goudstaven?");
+	let combinatie = prompt("Wat is de combinatie code?");
+	const kluis = new Kluis(kluisNaam, aantalGoudstaven, combinatie);
 
-	$(".kluisInfo").append("Kluis aangemaakt: Naam: " + kluis.kluisNaam + " Aantal staven: " + kluis.aantalStaven + " combinatie: " + kluis.combi);
+	$(".kluisInfo").text("Kluis aangemaakt: Naam: " + kluis.kluisNaam + " Aantal staven: " + kluis.aantalGoudstaven + " combinatie: " + kluis.combinatie);
 	kluisArray.push(kluis);
 }
 
 export function getKluis() {
+	$(".kluisInfo2").text("");
 	for (let i = 0; i < kluisArray.length; i++) {
-		$(".kluisInfo2").append(kluisArray[i]);
+		$(".kluisInfo2").append(kluisArray[i].getAantalStaven());
 	}
 }
+
+
