@@ -19,7 +19,7 @@ import Kluis from './pages/kluis';
 function App() {
 	return (
 
-		<BrowserRouter basename={window.location.pathname || ''}>
+		<BrowserRouter>
 			<Navbar />
 
 			<Routes>

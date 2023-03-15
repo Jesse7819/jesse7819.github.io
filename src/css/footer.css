@@ -8,12 +8,6 @@
 
 .footer-bottom {
     background-color: rgba(0, 0, 0, 0.2);
-    /* padding-top: 10px;
-    padding-bottom: 10px; */
-}
-
-.socialBtns {
-    /* padding: 8px; */
 }
 
 .facebookBtn,
@@ -34,5 +28,13 @@
 .fa-github {
     background-color: transparent;
     color: #3b71ca;
+
+}
+
+@media screen and (max-width: 767px) {
+
+    .footer {
+        display: none;
+    }
 
 }

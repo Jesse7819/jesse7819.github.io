@@ -44,20 +44,29 @@ class Kluis {
 const kluisArray = [];
 
 export function createKluis() {
-	let kluisNaam = prompt("Wat is uw kluisnaam?");
-	let aantalGoudstaven = prompt("Hoeveel goudstaven?");
-	let combinatie = prompt("Wat is de combinatie code?");
-	const kluis = new Kluis(kluisNaam, aantalGoudstaven, combinatie);
+	let kluisNaam = $("#naamInput").val();
+	let aantalGoudstaven = $("#goudstavenInput").val();
+	let combinatie = $("#codeInput").val();
 
-	$(".kluisInfo").text("Kluis aangemaakt: Naam: " + kluis.kluisNaam + " Aantal staven: " + kluis.aantalGoudstaven + " combinatie: " + kluis.combinatie);
-	kluisArray.push(kluis);
+	if ((kluisNaam && aantalGoudstaven && combinatie) !== "" || null) {
+		const kluis = new Kluis(kluisNaam, aantalGoudstaven, combinatie);
+		$(".kluisInfo").text("Kluis aangemaakt: Naam: " + kluis.kluisNaam + " Aantal staven: " + kluis.aantalGoudstaven + " combinatie: " + kluis.combinatie);
+		kluisArray.push(kluis);
+
+	} else {
+		console.log("Missing inputs");
+	}
 }
 
-export function getKluis() {
+export function kluisInfo() {
+	let id = $(".kluisId").val();
+	getKluis(id);
+}
+
+export function getKluis(id) {
 	$(".kluisInfo2").text("");
-	for (let i = 0; i < kluisArray.length; i++) {
-		$(".kluisInfo2").append(kluisArray[i].getAantalStaven());
-	}
+	$(".kluisInfo2").append(kluisArray[id].getAantalStaven());
+
 }
 
 

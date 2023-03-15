@@ -1,0 +1,12 @@
+.createKluisBtn,
+.kluisArray {
+	margin: auto;
+	background: #232931;
+	font-family: "Indie Flower", cursive;
+	border-radius: 7px;
+	color: #ffff;
+	font-size: 20px;
+	padding: 16px 25px 16px 25px;
+	text-decoration: none;
+	display: block;
+}
