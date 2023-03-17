@@ -11,6 +11,7 @@ const Home = () => {
 						Op deze website laat ik zien wat ik kan met HTML, Javascript, Jquery en CSS.
 						Alles op deze website is met Javascript en Jquery gemaakt, inclusief het HTML.
 						Bijvoorbeeld bij Cases - For/while loops. Dat is allemaal geregeld door Javascript en Jquery.
+
 					</div>
 				</div>
 			</div>
