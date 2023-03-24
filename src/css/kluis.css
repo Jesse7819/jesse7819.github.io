@@ -10,3 +10,55 @@
 	text-decoration: none;
 	display: block;
 }
+
+
+.getSafeFormDetails {
+	border: 1px solid black;
+	background-color: azure;
+	width: 700px;
+	margin: auto;
+	text-align: center;
+
+}
+
+.getSafeFormDetails .detailsForm {
+	width: 100%;
+	display: flex;
+	flex: 1;
+}
+
+.detailsForm>.depositInput {
+	flex: 1;
+	order: 1;
+}
+
+.detailsForm>.withdrawInput {
+	flex: 1;
+	order: 2;
+}
+
+.increaseBtn,
+.decreaseBtn {
+	border-radius: 0px !important;
+}
+
+.inputArrows.form-control {
+	border-radius: 0px;
+	display: inline-block;
+	width: 20%;
+	height: 33px;
+	padding: 15px;
+	padding-bottom: 20px;
+
+}
+
+.inputArrows::-webkit-outer-spin-button,
+.inputArrows::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+/* Firefox */
+.inputArrows[type=number] {
+	-moz-appearance: textfield;
+}

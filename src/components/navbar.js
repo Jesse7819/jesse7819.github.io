@@ -25,8 +25,13 @@ function newNavbar() {
                             </NavDropdown>
                         </Nav>
                     </Navbar.Collapse>
+
                 </Container>
+
             </Navbar>
+            <div className="notification-top-bar">
+                <p>Website is nog niet af.</p>
+            </div>
         </div>
 
     );

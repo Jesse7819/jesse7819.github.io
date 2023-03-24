@@ -13,7 +13,7 @@
 
 }
 
-.container-fluid .nav-link { 
+.container-fluid .nav-link {
     text-align: center;
 }
 
@@ -23,9 +23,35 @@
     font-size: 20px;
 }
 
+.notification-top-bar {
+    position: sticky;
+    top: 62px;
+    left: 0;
+    height: 40px;
+    line-height: 40px;
+    width: 100%;
+    background: red;
+    text-align: center;
+    color: #FFFFFF;
+    font-family: sans-serif;
+    font-weight: lighter;
+    font-size: 14px;
+}
+
+.notification-top-bar p {
+    padding: 0;
+    margin: 0;
+    font-size: 18px;
+}
+
 @media screen and (max-width: 767px) {
     .navbar-expand-md .navbar-nav {
         padding-right: unset;
     }
-    
+
+    .notification-top-bar {
+        top: 56px;
+    }
+
+
 }
