@@ -11,6 +11,59 @@ export default function Kluis() {
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
 
+
+	let depositCount;
+	let withdrawCount;
+
+
+
+	function incrementCount(action) {
+		depositCount = Number($("#depositInput").val());
+		withdrawCount = Number($("#withdrawInput").val());
+
+		if (action === "deposit") {
+			if (depositCount !== null) {
+				depositCount = depositCount + 1;
+				$("#depositInput").val(depositCount);
+			}
+
+		} else if (action === "withdraw") {
+			if (withdrawCount !== null) {
+				withdrawCount = withdrawCount + 1;
+				$("#withdrawInput").val(withdrawCount);
+
+			}
+		}
+	}
+
+	function decrementCount(action) {
+		depositCount = Number($("#depositInput").val());
+		withdrawCount = Number($("#withdrawInput").val());
+
+		if (action === "deposit") {
+			if (depositCount !== null) {
+				if (depositCount <= 0) {
+					depositCount = 0;
+					$("#depositInput").val(depositCount);
+				} else {
+					depositCount = depositCount - 1;
+					$("#depositInput").val(depositCount);
+				}
+			}
+
+		} else if (action === "withdraw") {
+			if (withdrawCount !== null) {
+				if (withdrawCount <= 0) {
+					withdrawCount = 0;
+					$("#withdrawInput").val(withdrawCount);
+				} else {
+					withdrawCount = withdrawCount - 1;
+					$("#withdrawInput").val(withdrawCount);
+				}
+			}
+		}
+	}
+
 	return (
 
 		<div>
@@ -166,31 +219,45 @@ export default function Kluis() {
 				</Modal.Footer>
 			</Modal>
 
-			<div className="getSafeFormDetails"><h2 className="safeNameTitle">Jesse</h2>
+			<div className="getSafeFormDetails">
+				<h2 className="safeNameTitle">Jesse</h2>
 				<Form className="detailsForm">
 
 					<Form.Group className="mb-3 depositInput" controlId="depositInput">
 						<Form.Label>Deposit:</Form.Label><br></br>
-						<Button variant="secondary" className="decreaseBtn">-</Button>
+						<Button variant="secondary" className="decreaseBtn" onClick={() => {
+							decrementCount("deposit");
+						}}>-</Button>
 						<Form.Control
 							type="number" required
 							placeholder="0000"
 							className="inputArrows"
+							value={depositCount}
+
 						/>
-						<Button variant="secondary" className="increaseBtn">+</Button>
+						<Button variant="secondary" className="increaseBtn" onClick={() => {
+							incrementCount("deposit");
+						}}>+</Button><br></br>
+						<Button variant="success" className="depositConfirm">Confirm</Button>
 
 					</Form.Group>
 
 					<Form.Group className="mb-3 withdrawInput" controlId="withdrawInput">
 						<Form.Label>Withdraw:</Form.Label><br></br>
-						<Button variant="secondary" className="decreaseBtn">-</Button>
+						<Button variant="secondary" className="decreaseBtn" onClick={() => {
+							decrementCount("withdraw");
+						}}>-</Button>
 						<Form.Control
 							type="number" required
 							placeholder="0000"
 							className="inputArrows"
-						/>
-						<Button variant="secondary" className="increaseBtn">+</Button>
+							value={withdrawCount}
 
+						/>
+						<Button variant="secondary" className="increaseBtn" onClick={() => {
+							incrementCount("withdraw");
+						}}>+</Button><br></br>
+						<Button variant="success" className="withdrawConfirm">Confirm</Button>
 					</Form.Group>
 
 				</Form>

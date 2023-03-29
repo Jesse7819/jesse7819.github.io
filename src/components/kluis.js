@@ -6,6 +6,7 @@ class HashTable {
 		this.table = new Array(1000000); //random grootte table.. 
 		this.size = 0;
 	}
+
 	_hash(key) {
 		let hash = 0;
 		for (let i = 0; i < key.length; i++) {
@@ -81,6 +82,7 @@ class Safe {
 }
 
 const kluisArray = new HashTable();
+
 
 export function createSafe() {
 	let safeName = $("#nameInput").val();
