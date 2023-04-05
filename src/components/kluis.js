@@ -1,47 +1,8 @@
 import React from 'react';
 import $ from 'jquery';
 
-class HashTable {
-	constructor() {
-		this.table = new Array(1000000); //random grootte table.. 
-		this.size = 0;
-	}
-
-	_hash(key) {
-		let hash = 0;
-		for (let i = 0; i < key.length; i++) {
-			hash += key.charCodeAt(i);
-		}
-		return hash % this.table.length;
-	}
-
-	set(key, value) {
-		const index = this._hash(key);
-		this.table[index] = [key, value];
-		this.size++;
-	}
-
-	get(key) {
-		const index = this._hash(key);
-		return this.table[index];
-	}
-
-	remove(key) {
-		const index = this._hash(key);
-
-		if (this.table[index] && this.table[index].length) {
-			this.table[index] = undefined;
-			this.size--;
-			return true;
-		} else {
-			return false;
-		}
-	}
-}
-
 class Safe {
 	constructor(safeName, totalGoldbars, combination) {
-
 		this.safeName = safeName;
 		this._totalBars = totalGoldbars;
 		this._combi = combination;
@@ -56,69 +17,84 @@ class Safe {
 
 	}
 
-	getTotalBars() {
-		if (this.getCombi() === true) {
-			return this._totalBars;
-		}
+	// setTotalBars(action) {
+	// 	if (this.getCombi() === true) {
+	// 		if (action === "deposit") {
+	// 			let total = $("#depositInput").val();
+	// 			this._totalBars += total;
+	// 			console.log("done");
+	// 			$(".safeGoldBars").text(this._totalBars);
+	// 		}
 
+	// 	}
+	// }
+
+}
+
+export class Bank {
+	constructor() {
+		this._vaultArray = [];
 	}
 
-	setAantalStaven() {
+	createSafe(username, fullname, combination, goldbars) {
 
-	}
+		if (username in this._vaultArray) {
+			console.log("already exist");
+			$(".getSafeFormDetails").hide();
+			$(".getSafeFormArea").show();
+			$(".getSafeFormAreaWarning h2").text("Error: Kluis bestaat al. Kies een andere naam");
+			$(".getSafeFormAreaWarning").show();
 
-	getCombi() {
-		let create_combi = $("#passwordInput").val();
-		let get_combi = $("#getCodeInput").val();
-		let deleteCombi = $(".deleteSafeBodyForm #getCodeInput").val();
-		// if ((create_combi === this._combi) || (get_combi === this._combi)) {
-		if ((create_combi || get_combi || deleteCombi) === this._combi) {
-			return true;
 		} else {
-			$(".kluisInfo2").text("Combinatie is incorrect.");
-			return false;
+			console.log("created");
+			this._vaultArray[username] = { "fullname": fullname, "combination": combination, "goldbars": goldbars }
+			console.log(this._vaultArray);
+			$(".getSafeFormDetails").hide();
+			$(".getSafeFormAreaWarning h2").text("Kluis aangemaakt.");
+			$(".getSafeFormAreaWarning").show();
+			$(".getSafeFormArea").show();
+		}
+
+	}
+
+	getSafe() {
+		let getSafeName = $(".getSafeBodyForm #idInput").val();
+		let combi = $("#getCodeInput").val();
+
+		if (combi === this._vaultArray[getSafeName].combination) {
+			$(".safeNameTitle").text(this._vaultArray[getSafeName].fullname);
+			$(".safeGoldBars").text(this._vaultArray[getSafeName].goldbars);
+			console.log("done");
+			$(".getSafeFormDetails").show();
+			$(".getSafeFormAreaWarning").hide();
 		}
 	}
-}
 
-const kluisArray = new HashTable();
+	deleteSafe() {
+		let deleteSafeName = $(".deleteSafeBodyForm #idInput").val();
+		let deleteCombi = $(".deleteSafeBodyForm #getCodeInput").val();
 
+		if (deleteSafeName !== "" || null) {
 
-export function createSafe() {
-	let safeName = $("#nameInput").val();
-	let totalGoldbars = $("#goldbarsInput").val();
-	let combination = $("#codeInput").val();
-	let i = 0;
+			if (deleteCombi === this._vaultArray[deleteSafeName].combination) {
 
-	if ((safeName && totalGoldbars && combination) !== "" || null) {
-		const kluis = new Safe(safeName, totalGoldbars, combination);
-		$(".kluisInfo").text("Kluis aangemaakt: Naam: " + kluis.safeName + " Aantal staven: " + kluis.totalGoldbars + " combination: " + kluis.combination);
+				delete this._vaultArray[deleteSafeName];
+				console.log(this._vaultArray);
+				$(".getSafeFormAreaWarning").hide();
 
-		kluisArray.set(safeName, kluis);
-		console.log(kluisArray);
-
-	} else {
-		console.log("Missing inputs");
-	}
-}
-
-export function getSafe() {
-	let safeName = $(".getSafeBodyForm #idInput").val();
-	$(".kluisInfo2").text("");
-	$(".kluisInfo2").append(kluisArray.get(safeName)[1].getTotalBars());
-
-}
-
-export function deleteSafe() {
-	let safeName = $(".deleteSafeBodyForm #idInput").val();
-	if (safeName !== "" || null) {
-		if (kluisArray.get(safeName)[1].getCombi() === true) {
-			console.log(kluisArray.get(safeName)[1].getCombi());
-			kluisArray.remove(safeName);
+			}
 		}
 	}
 
 }
+
+export function changeTotalBars(action) {
+	// let safeName = $(".safeNameTitle").val();
+	// console.log(safeName);
+	// console.log($(".safeNameTitle").val())
+	// kluisArray.get(safeName)[1].setTotalBars(action);
+}
+
 
 export function getSafeForm(formType) {
 

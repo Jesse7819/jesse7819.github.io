@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { createSafe, getSafeForm, kluisInfo, getSafe, deleteSafe } from '../components/kluis';
+import { Bank, getSafeForm, getSafe, deleteSafe, changeTotalBars } from '../components/kluis';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import $ from 'jquery';
 
+
+const bank = new Bank();
 
 export default function Kluis() {
 	const [show, setShow] = useState(false);
@@ -14,8 +16,6 @@ export default function Kluis() {
 
 	let depositCount;
 	let withdrawCount;
-
-
 
 	function incrementCount(action) {
 		depositCount = Number($("#depositInput").val());
@@ -108,8 +108,16 @@ export default function Kluis() {
 							<Form.Label>Naam:</Form.Label>
 							<Form.Control
 								type="text" required
-								placeholder="John Doe"
+								placeholder="John"
 								autoFocus
+							/>
+						</Form.Group>
+						<Form.Group className="mb-3" controlId="fullnameInput">
+							<Form.Label>Volledige naam:</Form.Label>
+							<Form.Control
+								type="text" required
+								placeholder="John Doe"
+
 							/>
 						</Form.Group>
 						<Form.Group
@@ -134,6 +142,12 @@ export default function Kluis() {
 						</Form.Group>
 					</Form>
 				</Modal.Body>
+
+
+
+
+
+
 
 				{/* Body for getting safe info */}
 				<Modal.Body className="getSafeBody">
@@ -185,8 +199,8 @@ export default function Kluis() {
 						Close
 					</Button>
 					<Button variant="primary" onClick={() => {
-						if (($("#naamInput").val() && $("#goudstavenInput").val() && $("#codeInput").val()) !== "" || null) {
-							createSafe();
+						if (($("#naamInput").val() && $("#fullnameInput").val() && $("#goudstavenInput").val() && $("#codeInput").val()) !== "" || null) {
+							bank.createSafe($("#nameInput").val(), $("#fullnameInput").val(), $("#codeInput").val(), $("#goldbarsInput").val());
 							handleClose();
 						}
 					}}>Create</Button>
@@ -199,7 +213,7 @@ export default function Kluis() {
 					</Button>
 					<Button variant="primary" onClick={() => {
 						if (($(".getSafeBodyForm #idInput").val() && $(".getSafeBodyForm #getCodeInput").val()) !== "" || null) {
-							getSafe();
+							bank.getSafe();
 							handleClose();
 						}
 					}}>Bekijk</Button>
@@ -212,55 +226,64 @@ export default function Kluis() {
 					</Button>
 					<Button variant="primary" onClick={() => {
 						if (($(".deleteSafeBodyForm #idInput").val() && $(".deleteSafeBodyForm #getCodeInput").val()) !== "" || null) {
-							deleteSafe();
+							bank.deleteSafe();
 							handleClose();
 						}
 					}}>Delete</Button>
 				</Modal.Footer>
 			</Modal>
 
-			<div className="getSafeFormDetails">
-				<h2 className="safeNameTitle">Jesse</h2>
-				<Form className="detailsForm">
+			<div className="getSafeFormArea">
+				<div className="getSafeFormAreaWarning">
+					<h2>Error: Kluis bestaat al. Kies een andere naam</h2>
+				</div>
+				<div className="getSafeFormDetails">
+					<h2 className="safeNameTitle">x</h2>
+					<h3 className="goudstavenInfo">Aantal goudstaven:</h3>
+					<h3 className="safeGoldBars">0</h3>
+					<Form className="detailsForm">
 
-					<Form.Group className="mb-3 depositInput" controlId="depositInput">
-						<Form.Label>Deposit:</Form.Label><br></br>
-						<Button variant="secondary" className="decreaseBtn" onClick={() => {
-							decrementCount("deposit");
-						}}>-</Button>
-						<Form.Control
-							type="number" required
-							placeholder="0000"
-							className="inputArrows"
-							value={depositCount}
+						<Form.Group className="mb-3 depositInput" controlId="depositInput">
+							<Form.Label>Deposit:</Form.Label><br></br>
+							<Button variant="secondary" className="decreaseBtn" onClick={() => {
+								decrementCount("deposit");
+							}}>-</Button>
+							<Form.Control
+								type="number" required
+								placeholder="0000"
+								className="inputArrows"
+								value={depositCount}
 
-						/>
-						<Button variant="secondary" className="increaseBtn" onClick={() => {
-							incrementCount("deposit");
-						}}>+</Button><br></br>
-						<Button variant="success" className="depositConfirm">Confirm</Button>
+							/>
+							<Button variant="secondary" className="increaseBtn" onClick={() => {
+								incrementCount("deposit");
+							}}>+</Button><br></br>
+							<Button variant="success" className="depositConfirm" onClick={() => {
+								changeTotalBars("deposit");
+							}}>Confirm</Button>
 
-					</Form.Group>
+						</Form.Group>
 
-					<Form.Group className="mb-3 withdrawInput" controlId="withdrawInput">
-						<Form.Label>Withdraw:</Form.Label><br></br>
-						<Button variant="secondary" className="decreaseBtn" onClick={() => {
-							decrementCount("withdraw");
-						}}>-</Button>
-						<Form.Control
-							type="number" required
-							placeholder="0000"
-							className="inputArrows"
-							value={withdrawCount}
+						<Form.Group className="mb-3 withdrawInput" controlId="withdrawInput">
+							<Form.Label>Withdraw:</Form.Label><br></br>
+							<Button variant="secondary" className="decreaseBtn" onClick={() => {
+								decrementCount("withdraw");
+							}}>-</Button>
+							<Form.Control
+								type="number" required
+								placeholder="0000"
+								className="inputArrows"
+								value={withdrawCount}
 
-						/>
-						<Button variant="secondary" className="increaseBtn" onClick={() => {
-							incrementCount("withdraw");
-						}}>+</Button><br></br>
-						<Button variant="success" className="withdrawConfirm">Confirm</Button>
-					</Form.Group>
+							/>
+							<Button variant="secondary" className="increaseBtn" onClick={() => {
+								incrementCount("withdraw");
+							}}>+</Button><br></br>
+							<Button variant="success" className="withdrawConfirm">Confirm</Button>
+						</Form.Group>
 
-				</Form>
+					</Form>
+				</div>
 			</div>
 
 		</div>
