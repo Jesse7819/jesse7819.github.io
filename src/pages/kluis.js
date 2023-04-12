@@ -8,6 +8,7 @@ import $ from 'jquery';
 
 const bank = new Bank();
 
+
 export default function Kluis() {
 	const [show, setShow] = useState(false);
 	const handleClose = () => setShow(false);
@@ -143,12 +144,6 @@ export default function Kluis() {
 					</Form>
 				</Modal.Body>
 
-
-
-
-
-
-
 				{/* Body for getting safe info */}
 				<Modal.Body className="getSafeBody">
 					<Form className="getSafeBodyForm">
@@ -259,7 +254,7 @@ export default function Kluis() {
 								incrementCount("deposit");
 							}}>+</Button><br></br>
 							<Button variant="success" className="depositConfirm" onClick={() => {
-								changeTotalBars("deposit");
+								bank.setTotalBars("deposit");
 							}}>Confirm</Button>
 
 						</Form.Group>
@@ -279,11 +274,20 @@ export default function Kluis() {
 							<Button variant="secondary" className="increaseBtn" onClick={() => {
 								incrementCount("withdraw");
 							}}>+</Button><br></br>
-							<Button variant="success" className="withdrawConfirm">Confirm</Button>
+							<Button variant="success" className="withdrawConfirm" onClick={() => {
+								bank.setTotalBars("withdraw");
+							}}>Confirm</Button>
 						</Form.Group>
-
 					</Form>
+
+					<Button variant="secondary" className="changeCombiBtn" onClick={() => {
+						//function
+					}}>Finish</Button>
+
 				</div>
+			</div>
+			<div className="dialog">Je kan niet meer goudstaven eruit halen dan dat je er hebt!
+
 			</div>
 
 		</div>

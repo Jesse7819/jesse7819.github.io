@@ -1,35 +1,11 @@
 import React from 'react';
 import $ from 'jquery';
+import 'jquery-ui-bundle';
+import 'jquery-ui-bundle/jquery-ui.min.css';
 
-class Safe {
-	constructor(safeName, totalGoldbars, combination) {
-		this.safeName = safeName;
-		this._totalBars = totalGoldbars;
-		this._combi = combination;
-	}
+let currentUser;
 
-	// bekijktotalGoldbars(combi)
-	// legGoudstaven(staven, combi)
-	// pakGoudStaven(staven, combi)
-	// verandercombination(nieuweCombi, oudeCombi)
-
-	changeCombi(currentCombi, nieuwe_combi) {
-
-	}
-
-	// setTotalBars(action) {
-	// 	if (this.getCombi() === true) {
-	// 		if (action === "deposit") {
-	// 			let total = $("#depositInput").val();
-	// 			this._totalBars += total;
-	// 			console.log("done");
-	// 			$(".safeGoldBars").text(this._totalBars);
-	// 		}
-
-	// 	}
-	// }
-
-}
+// changeCombi(nieuweCombi, oudeCombi)
 
 export class Bank {
 	constructor() {
@@ -60,7 +36,7 @@ export class Bank {
 	getSafe() {
 		let getSafeName = $(".getSafeBodyForm #idInput").val();
 		let combi = $("#getCodeInput").val();
-
+		currentUser = getSafeName;
 		if (combi === this._vaultArray[getSafeName].combination) {
 			$(".safeNameTitle").text(this._vaultArray[getSafeName].fullname);
 			$(".safeGoldBars").text(this._vaultArray[getSafeName].goldbars);
@@ -86,13 +62,28 @@ export class Bank {
 		}
 	}
 
-}
+	setTotalBars(action) {
 
-export function changeTotalBars(action) {
-	// let safeName = $(".safeNameTitle").val();
-	// console.log(safeName);
-	// console.log($(".safeNameTitle").val())
-	// kluisArray.get(safeName)[1].setTotalBars(action);
+		if (action === "deposit") {
+			let total = Number($("#depositInput").val());
+			this._vaultArray[currentUser].goldbars = (Number(this._vaultArray[currentUser].goldbars) + Number(total));
+			$(".safeGoldBars").text(this._vaultArray[currentUser].goldbars);
+			$("#depositInput").val("");
+		} else if (action === "withdraw") {
+			let total = Number($("#withdrawInput").val());
+			if (this._vaultArray[currentUser].goldbars >= total) {
+				this._vaultArray[currentUser].goldbars = (Number(this._vaultArray[currentUser].goldbars) - Number(total));
+				$(".safeGoldBars").text(this._vaultArray[currentUser].goldbars);
+				$("#withdrawInput").val("");
+			} else {
+				$(".dialog").dialog({
+					"title": "Error!"
+				});
+
+			}
+
+		}
+	}
 }
 
 
