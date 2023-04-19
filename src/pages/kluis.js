@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Bank, getSafeForm, getSafe, deleteSafe, changeTotalBars } from '../components/kluis';
+import { Bank, getSafeForm, uitlegFunction } from '../components/kluis';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
@@ -69,27 +69,31 @@ export default function Kluis() {
 
 		<div>
 			<br></br>
-			<Button variant="primary" onClick={() => {
-				handleShow();
-				getSafeForm("createSafeForm");
-
-
-			}}>
-				Kluis aanmaken
-			</Button>
-			<Button variant="info" onClick={() => {
-				handleShow();
-				getSafeForm("getSafeForm");
-			}}>
-				Kluis bekijken
-			</Button>
-			<Button variant="danger" onClick={() => {
-				handleShow();
-				getSafeForm("deleteSafeForm");
-			}}>
-				Kluis verwijderen
-			</Button><hr></hr>
-
+			<div className="kluisBtns">
+				<Button className="kluisBtn" variant="primary" onClick={() => {
+					uitlegFunction();
+				}}>
+					Uitleg
+				</Button>
+				<Button className="kluisBtn" variant="success" onClick={() => {
+					handleShow();
+					getSafeForm("createSafeForm");
+				}}>
+					Kluis aanmaken
+				</Button>
+				<Button className="kluisBtn" variant="info" onClick={() => {
+					handleShow();
+					getSafeForm("getSafeForm");
+				}}>
+					Kluis bekijken
+				</Button>
+				<Button className="kluisBtn" variant="danger" onClick={() => {
+					handleShow();
+					getSafeForm("deleteSafeForm");
+				}}>
+					Kluis verwijderen
+				</Button><hr></hr>
+			</div>
 
 			<div className="kluisInfo"></div>
 			<div className="kluisInfo2"></div>
@@ -148,10 +152,10 @@ export default function Kluis() {
 				<Modal.Body className="getSafeBody">
 					<Form className="getSafeBodyForm">
 						<Form.Group className="mb-3" controlId="idInput">
-							<Form.Label>ID:</Form.Label>
+							<Form.Label>Naam:</Form.Label>
 							<Form.Control
 								type="text" required
-								placeholder="0000"
+								placeholder="John"
 								autoFocus
 							/>
 						</Form.Group>
@@ -286,8 +290,8 @@ export default function Kluis() {
 
 				</div>
 			</div>
-			<div className="dialog">Je kan niet meer goudstaven eruit halen dan dat je er hebt!
-
+			<div className="dialog" id="dialog">
+				lalala
 			</div>
 
 		</div>

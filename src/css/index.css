@@ -1,9 +1,16 @@
+.home {
+	background-color: aliceblue;
+	padding-bottom: 100px;
+
+}
+
 .home .homeIntro {
 	flex-grow: 1;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	width: 100%;
+
 }
 
 .home .homeIntro .homeTitle {

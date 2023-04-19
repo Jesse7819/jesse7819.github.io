@@ -24,6 +24,7 @@
 }
 
 .notification-top-bar {
+    /*maintenance notification */
     position: sticky;
     top: 62px;
     left: 0;
@@ -36,6 +37,7 @@
     font-family: sans-serif;
     font-weight: lighter;
     font-size: 14px;
+    display: none;
 }
 
 .notification-top-bar p {
