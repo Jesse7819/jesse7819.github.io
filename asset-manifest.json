@@ -1,13 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.3350e5cc.css",
-    "main.js": "/static/js/main.0122a59d.js",
+    "main.css": "/static/css/main.23c11272.css",
+    "main.js": "/static/js/main.3aa532e0.js",
+    "static/media/dobbelspel2.png": "/static/media/dobbelspel2.bb7585a809102bf5115b.png",
+    "static/media/bejaardentehuis.png": "/static/media/bejaardentehuis.48041af091a229ae45c6.png",
+    "static/media/kluis.png": "/static/media/kluis.ec66002631789fa823ff.png",
+    "static/media/dobbelspel.png": "/static/media/dobbelspel.6e453638b924166041c3.png",
+    "static/media/kluis2.png": "/static/media/kluis2.8063655cd7ec3bbfd719.png",
     "index.html": "/index.html",
-    "main.3350e5cc.css.map": "/static/css/main.3350e5cc.css.map",
-    "main.0122a59d.js.map": "/static/js/main.0122a59d.js.map"
+    "main.23c11272.css.map": "/static/css/main.23c11272.css.map",
+    "main.3aa532e0.js.map": "/static/js/main.3aa532e0.js.map"
   },
   "entrypoints": [
-    "static/css/main.3350e5cc.css",
-    "static/js/main.0122a59d.js"
+    "static/css/main.23c11272.css",
+    "static/js/main.3aa532e0.js"
   ]
 }
