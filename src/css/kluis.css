@@ -11,6 +11,14 @@
 	display: block;
 }
 
+.kluisBtns {
+	text-align: center;
+}
+
+.kluisBtn {
+	margin-right: 5px;
+}
+
 
 .getSafeFormArea {
 	border: 1px solid black;
@@ -85,4 +93,12 @@
 
 .changeCombiBtn {
 	margin-bottom: 10px;
+}
+
+.dialog {
+	display: none;
+}
+
+.ui-dialog {
+	width: auto !important;
 }

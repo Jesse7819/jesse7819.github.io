@@ -8,15 +8,14 @@
     "@fortawesome/free-brands-svg-icons": "^6.3.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "bootstrap": "^5.2.3",
-    "depcheck": "^1.4.3",
     "jquery": "^3.6.1",
-    "jquery-dialog": "^0.5.2",
     "jquery-ui-bundle": "^1.12.1-migrate",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.5",
-    "react-scripts": "5.0.1"
+    "react-scripts": "5.0.1",
+    "react-swipeable": "^7.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

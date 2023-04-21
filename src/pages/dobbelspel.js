@@ -1,5 +1,5 @@
 import React from "react";
-import { diceRollInfoFunction, resetDiceRollFunction, startGameFunction, stopDiceGameFunction} from "../components/dobbelspel";
+import { diceRollInfoFunction, resetDiceRollFunction, startGameFunction, stopDiceGameFunction } from "../components/dobbelspel";
 import dice6 from '../images/dice6.png';
 const Dobbelspel = () => {
     return (
@@ -7,14 +7,14 @@ const Dobbelspel = () => {
         <div className="dobbelspelContainer">
             <h1 className="dobbelspelTitel">Dobbelspel</h1>
             <div className="areas">
-                
+
                 <div className="leftArea">
                     <h2 className="player1Name">Player 1: </h2>
                     <div className="dices1">
                         <h3 className="player1Score">{/**/}</h3>
                         <img className="diceOne" src={dice6} alt="#"></img>
                         <img className="diceTwo" src={dice6} alt="#"></img>
-                        
+
                     </div>
                 </div>
 
@@ -34,7 +34,6 @@ const Dobbelspel = () => {
                 <button className="resetBtn" type="button" onClick={resetDiceRollFunction}>Speel nog een keer</button>
                 <button className="stopBtn" type="button" onClick={stopDiceGameFunction}>Stop spel</button>
                 <button className="rollDice" type="button" onClick={startGameFunction}>Rol de stenen</button>
-                {/* <button class="rollDiceBtn" type="button" onclick="startGameFunction()">Begin het spel</button> */}
             </div>
         </div>
     );

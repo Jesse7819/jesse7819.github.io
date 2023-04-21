@@ -1,4 +1,3 @@
-import { data } from "jquery";
 import React from "react";
 import { bejaardentehuisFunction } from "../components/bejaardentehuis";
 
@@ -9,13 +8,15 @@ const bejaardentehuis = () => {
             <div className="bejaardentehuis">
                 <div className="bejaardentehuisArea">
                     <button className="bejaardentehuisBtn" onClick={bejaardentehuisFunction}>Start</button>
-                    <p><b>Alle leeftijden:</b></p>
                     <hr></hr>
+                    <p><b>100 leeftijden willekeurig gegenereerd:</b></p>
+
                     <div className="leeftijdResults"></div>
                     <hr></hr>
                     <span><b>Iedereen boven de 50:</b></span>
                     <div className="bejaardentehuisResults"></div>
                     <hr></hr>
+                    <p className="info2"><b>Iedereen boven de 50 in een tabel</b></p>
                     <div id="main">
                         <div id="id1"><b>Row 1</b><hr></hr></div>
                         <div id="id2"><b>Row 2</b><hr></hr></div>
